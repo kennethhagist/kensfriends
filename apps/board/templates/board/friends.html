@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>friends Show</title>
+    {% load staticfiles %}
+    <link href="{% static 'board/style.css' %}" rel="stylesheet">
+</head>
+<body>
+    <h1>Hello, {{ user.alias }}!</h1>
+    <h2>Here is a list of your friends: </h2>
+    <h2><strong>User Alias: </strong>{{user.alias}}</h2>
+    <!-- Action column -->
+    <!-- View Profile Button -->
+    <!-- Remove as Friend button -->
+    <!-- <h2><strong>Name: </strong>{{user.name}}</h2> -->
+    <!-- <h2><strong>Email: </strong>{{user.email}}</h2> -->
+    <hr>
+    <h1>Other Users not on your friend's list:</h1>
+    {% for user in users %}
+        <h3>{{ user.alias }}</h3>
+    {% endfor %}
+    <!-- link user profile page -->
+    <!-- action column -->
+    <!-- add as friend button -->
+</body>
+</html>
