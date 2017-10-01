@@ -1,0 +1,13 @@
+Index=Localhost/main
+Register
+Login
+
+friends/Home = localhost/friends
+View Profile
+Remove Friend
+Add as friend
+logout
+
+user page = localhost/user
+Home
+logout

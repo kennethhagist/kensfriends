@@ -60,3 +60,13 @@ class User(models.Model):
     objects = UserManager()
     def __str__(self):
         return self.email
+
+class OtherUser(models.Model):
+    name = models.CharField(max_length=100)
+    alias = models.CharField(max_length=100)
+    email = models.EmailField(unique=True)
+    password = models.CharField(max_length=255)
+    date_of_brith = models.DateField()
+    objects = UserManager()
+    def __str__(self):
+        return self.email

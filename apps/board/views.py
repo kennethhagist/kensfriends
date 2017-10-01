@@ -23,7 +23,7 @@ def login(request):
         return redirect('/')
     request.session['user_id'] = result.id
     messages.success(request, "Successfully logged in!")
-    return HttpResponseRedirect(reverse("board:index"))
+    return render(request, 'board/friends.html')
 
 def logout(request):
     for key in request.session.keys():
@@ -39,17 +39,7 @@ def register(request):
         return redirect('/')
     request.session['user_id'] = result.id
     messages.success(request, "Successfully registered!")
-    return HttpResponseRedirect(reverse("board:index"))
-
-def success(request):
-    try:
-        request.session['user_id']
-    except KeyError:
-        return redirect('/')
-    context = {
-        'user': User.objects.get(id=request.session['user_id'])
-    }
-    return render(request, 'board/success.html', context)
+    return render(request, 'board/friends.html')
 
 def show(request, user_id):
     user = User.objects.get(id=user_id)
@@ -67,6 +57,7 @@ def add(request):
     context = {
         "friends": friends.objects.all()
     }
-    return render(request, 'board/add.html', context)
+    return render(request, 'board/friends.html', context)
 
-#def other_users(request):
+def delete(request):
+    return render(request, 'board/friends.html')
